@@ -260,7 +260,9 @@ app.get('/api/transactions', function (request, response, next) {
 
       const compareTxnsByDateAscending = (a, b) => (a.date > b.date) - (a.date < b.date);
       // Return the 8 most recent transactions
-      const recently_added = [...added].sort(compareTxnsByDateAscending).slice(-8);
+      //const recently_added = [...added].sort(compareTxnsByDateAscending).slice(-8);
+      // Return the all transactions
+      const recently_added = [...added].sort(compareTxnsByDateAscending);
       response.json({latest_transactions: recently_added});
     })
     .catch(next);
